@@ -12,7 +12,7 @@ func (o *User) CreateUser(w http.ResponseWriter, r *http.Request) {
 }
 
 func (o *User) ListUser(w http.ResponseWriter, r *http.Request) {
-	fmt.Println("List all users")
+	fmt.Println("List all uses")
 }
 
 func (o *User) GetUserByID(w http.ResponseWriter, r *http.Request) {
