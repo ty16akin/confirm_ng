@@ -3,12 +3,17 @@ package main
 import (
 	"fmt"
 	"net/http"
+
+	"github.com/go-chi/chi/v5"
 )
 
 func main() {
+	router := chi.NewRouter()
+
+	router.Get("/hello", basicHandler)
 	server := &http.Server{
-		Addr:    ":8080",
-		Handler: http.HandlerFunc(basicHandler),
+		Addr:    ":8000",
+		Handler: router,
 	}
 
 	err := server.ListenAndServe()
