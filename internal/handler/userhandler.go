@@ -121,9 +121,8 @@ func (u *User) GetUserById(w http.ResponseWriter, r *http.Request) {
 
 func (u *User) UpdateUserById(w http.ResponseWriter, r *http.Request) {
 	var body struct {
-		Username string    `bson:"username" json:"username"`
-		Email    string    `bson:"email" json:"email"`
-		Updated  time.Time `bson:"updated" json:"updated"`
+		Username string `bson:"username" json:"username"`
+		Email    string `bson:"email" json:"email"`
 	}
 
 	if err := json.NewDecoder(r.Body).Decode(&body); err != nil {

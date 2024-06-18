@@ -40,7 +40,7 @@ func main() {
 
 	r := chi.NewRouter()
 	server := &http.Server{
-		Addr:    ":3000",
+		Addr:    ":3001",
 		Handler: r,
 	}
 	r.Use(middleware.Logger)
@@ -91,10 +91,12 @@ func main() {
 
 func loadUserRoutes(router chi.Router) {
 	userHandler := &handler.User{}
+	fuelStationHandler := &handler.FS{}
 
 	router.Post("/", userHandler.CreateUser)
 	router.Get("/", userHandler.GetUsers)
 	router.Get("/{id}", userHandler.GetUserById)
 	router.Patch("/{id}", userHandler.UpdateUserById)
 	router.Delete("/{id}", userHandler.DeleteUserById)
+	router.Get("/fuel-stations", fuelStationHandler.SearchFuelStations)
 }
